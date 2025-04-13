@@ -3,7 +3,7 @@ const easymidi = require('easymidi');
 const net = require('net');
 
 // MIDI出力デバイスの設定（環境に合わせて変更）
-const midiOutput = new easymidi.Output('loopMIDI'); // 例: Windowsデフォルト
+const midiOutput = new easymidi.Output('loopMIDI');
 
 // TCPサーバーの作成
 const server = net.createServer((socket) => {
@@ -28,12 +28,12 @@ const server = net.createServer((socket) => {
 
             try {
                 const msg = osc.readMessage(oscPacket); // OSCメッセージをデコード
-                console.log("手動デコードされたOSCメッセージ:", msg);
+                console.log("OSCメッセージ:", msg);
 
                 if (msg.address === "/s2l/out/bpm") {
                     // argsが配列か単一値かをチェック
                     const bpmValue = Array.isArray(msg.args) ? msg.args[0] : msg.args;
-                    console.log("BPM値（手動）:", bpmValue);
+                    console.log("BPM値:", bpmValue);
 
                     // BPM値を14ビットとして扱い、7ビットずつに分割
                     const bpmInt = Math.round(bpmValue); // 小数を整数に
@@ -44,20 +44,20 @@ const server = net.createServer((socket) => {
                     // MIDI CCメッセージを送信
                     // チャンネル0: MSB (CC#24)
                     midiOutput.send('cc', {
-                        controller: 24, // 汎用コントローラー1
+                        controller: 24,
                         value: msb,
                         channel: 0
                     });
 
                     // チャンネル1: LSB (CC#25)
                     midiOutput.send('cc', {
-                        controller: 25, // 汎用コントローラー2
+                        controller: 25,
                         value: lsb,
                         channel: 0
                     });
                 }
             } catch (err) {
-                console.error("手動デコードエラー:", err.message);
+                console.error("OSCメッセージのデコードエラー:", err.message);
             }
         }
     });

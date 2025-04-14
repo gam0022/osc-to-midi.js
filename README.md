@@ -18,7 +18,7 @@ npm install
 
 ### Sh4derJockeyのセットアップ
 
-1. `pipeline.yaml` に `loopMIDI` を追記
+#### 1. `pipeline.yaml` に `loopMIDI` を追記
 
 ```yaml
 midi_devices:
@@ -26,7 +26,7 @@ midi_devices:
   - "nanoKONTROL2" # 任意
 ```
 
-2. CC#24とCC#25に、スライダーの24と25を割り当て
+#### 2. CC#24とCC#25に、スライダーの24と25を割り当て
 
 Sh4derJockeyのMIDIコントローラーのバインドは最後に変更があったチャンネルにbindされるので、 `osc-to-midi.js` のCC送信を片方ずつコメントアウトして行う必要があります。
 
@@ -41,12 +41,12 @@ Sh4derJockeyのMIDIコントローラーのバインドは最後に変更があ�
   : 25
 ```
 
-3. GLSLでBPMをエンコード
+#### BPMのデコード処理をGLSLで実装
 
 ```glsl
 // 7bitずつ分けてBPMを受け取る
-float msb = sliders[24];
-float lsb = sliders[25];
+float msb = sliders[24];  // 上位7bit
+float lsb = sliders[25];  // 下位7bit
 
 float bpm = (lsb * 127) + (msb * 127) * 128;
 ```
@@ -55,10 +55,10 @@ float bpm = (lsb * 127) + (msb * 127) * 128;
 
 初回セットアップの完了後の手順です。
 
-- [loopMIDI](https://www.tobias-erichsen.de/software/loopmidi.html)を起動
-- Sound2Lightを起動
-- `npm run start` で本スクリプトを起動
-- Sh4derJockeyを起動
+1. [loopMIDI](https://www.tobias-erichsen.de/software/loopmidi.html)を起動
+2. Sound2Lightを起動
+3. `npm run start` で本スクリプトを起動
+4. Sh4derJockeyを起動
 
 ## メモ
 

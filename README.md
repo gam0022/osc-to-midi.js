@@ -2,7 +2,7 @@
 
 [Sound2Light](https://github.com/ETCLabs/Sound2Light)のBPMのOSCのメッセージをMIDIのCCにリアルタイムに変換するツールです。
 
-Sound2Light to [Sh4derJockey](https://github.com/slerpyyy/sh4der-jockey) の通信を実現するためのワークアラウンドとして開発しました。
+Sound2Light to [Sh4derJockey](https://github.com/slerpyyy/sh4der-jockey) の通信を実現するために開発しました。
 
 MIDI信号は7bit（0～127）しか送れないので、下位7bitと上位7bitの2チャンネルのMIDIのCCに分割して送信します。
 

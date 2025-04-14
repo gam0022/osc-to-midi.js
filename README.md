@@ -68,6 +68,7 @@ float bpm = (lsb * 127) + (msb * 127) * 128;
         - Stereo Input 1を `CABLE Output` に設定
         - HARDWARE OUTのA1を音を出力したいヘッドセットやスピーカーに設定
 - osc-to-midi.js がMIDI信号を送り続けるので、Sh4derJockeyのbindするときはosc-to-midi.jsをCtrl-Cで終了させる必要があります
+- Sh4derJockeyのFFTのマイクはWindows設定のデフォルトのマイクが自動参照されるようでした
 
 ## License
 

@@ -16,7 +16,7 @@ cd osc-to-midi.js
 npm install
 ```
 
-### Sh4derJockeyのセットアップ
+### Sh4derJockey側のセットアップ
 
 #### 1. `pipeline.yaml` に `loopMIDI` を追記
 

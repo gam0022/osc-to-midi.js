@@ -18,7 +18,7 @@ npm install
 
 ### Sh4derJockeyのセットアップ
 
-#### `pipeline.yaml` に `loopMIDI` を追記。
+1. `pipeline.yaml` に `loopMIDI` を追記
 
 ```yaml
 midi_devices:
@@ -26,11 +26,11 @@ midi_devices:
   - "nanoKONTROL2" # 任意
 ```
 
-#### CC#24とCC#25に、スライダーの24と25を割り当て
+2. CC#24とCC#25に、スライダーの24と25を割り当て
 
-Sh4derJockeyは最後に変更があったCCにbindされるので、 `osc-to-midi.js` のCC送信を片方ずつコメントアウトして行う必要があります。
+Sh4derJockeyのMIDIコントローラーのバインドは最後に変更があったチャンネルにbindされるので、 `osc-to-midi.js` のCC送信を片方ずつコメントアウトして行う必要があります。
 
-もしくは `midi-config.dat` を直接編集することもできそうです（未検証）。
+未検証ですが、 `midi-config.dat` を直接編集することもできそうな気がします。
 
 ```
   ? - 0
@@ -41,7 +41,7 @@ Sh4derJockeyは最後に変更があったCCにbindされるので、 `osc-to-mi
   : 25
 ```
 
-#### GLSLでBPMをエンコード
+3. GLSLでBPMをエンコード
 
 ```glsl
 // 7bitずつ分けてBPMを受け取る
@@ -51,14 +51,14 @@ float lsb = sliders[25];
 float bpm = (lsb * 127) + (msb * 127) * 128;
 ```
 
-## 使い方
+## 初回セットアップ後の使い方
 
-初回セットアップの完了後は以下の手順になります。
+初回セットアップの完了後の手順です。
 
 - [loopMIDI](https://www.tobias-erichsen.de/software/loopmidi.html)を起動
 - Sound2Lightを起動
 - `npm run start` で本スクリプトを起動
-
+- Sh4derJockeyを起動
 
 ## メモ
 
@@ -67,7 +67,7 @@ float bpm = (lsb * 127) + (msb * 127) * 128;
     - VB-Audio VoiceMeeter Banana を起動
         - Stereo Input 1を `CABLE Output` に設定
         - HARDWARE OUTのA1を音を出力したいヘッドセットやスピーカーに設定
-- osc-to-midi.js がMIDI信号を送り続けるので、Sh4derJockeyのbindするときはosc-to-midi.jsを終了させる必要がある
+- osc-to-midi.js がMIDI信号を送り続けるので、Sh4derJockeyのbindするときはosc-to-midi.jsをCtrl-Cで終了させる必要があります
 
 ## License
 

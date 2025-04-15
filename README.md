@@ -16,6 +16,12 @@ cd osc-to-midi.js
 npm install
 ```
 
+### Sound2Light側のセットアップ
+
+- Settingを開く
+    - OSC Protocolを TCP 1.0 に設定
+    - OSC TCP Portを3032に設定
+
 ### Sh4derJockey側のセットアップ
 
 #### 1. `pipeline.yaml` に `loopMIDI` を追記

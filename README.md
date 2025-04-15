@@ -18,9 +18,11 @@ npm install
 
 ### Sound2Light側のセットアップ
 
-- Settingを開く
-    - OSC Protocolを TCP 1.0 に設定
-    - OSC TCP Portを3032に設定
+- Settingsを開く
+    - OSC Protocolを `TCP 1.0` に設定
+    - 以下はデフォルト設定
+        - OSP IP Address: `127.0.0.1`
+        - OSC TCP Port: `3032`
 
 ### Sh4derJockey側のセットアップ
 

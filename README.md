@@ -1,10 +1,10 @@
 # osc-to-midi.js
 
-[Sound2Light](https://github.com/ETCLabs/Sound2Light)のBPM情報をリアルタイムに[Sh4derJockey](https://github.com/slerpyyy/sh4der-jockey)に通信するためのツールです。
+[Sound2Light](https://github.com/ETCLabs/Sound2Light)のBPM情報をリアルタイムで[Sh4derJockey](https://github.com/slerpyyy/sh4der-jockey)に送信するためのツールです。
 
-Sound2LightはOSC、Sh4derJockeyはMIDI信号にしか対応していないので、OSCのメッセージをMIDIのCCにリアルタイムに変換することで実現しています。
+Sound2LightはOSCに、Sh4derJockeyはMIDI信号にのみ対応しているため、OSCメッセージをMIDI CCにリアルタイムで変換することでこの機能を実現しています。
 
-MIDI信号は7bit（0～127）しか送れないので、下位7bitと上位7bitの2チャンネルのMIDIのCCに分割して送信します。
+MIDI信号は7bit（0～127）の範囲でしか送信できないため、BPM情報を下位7bitと上位7bitに分割し、2つのMIDI CCチャンネルを使用して送信します。
 
 ## 初回セットアップ
 

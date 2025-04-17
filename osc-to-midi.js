@@ -2,8 +2,14 @@ const osc = require('osc');
 const easymidi = require('easymidi');
 const net = require('net');
 
-// MIDI出力デバイスの設定（環境に合わせて変更）
+// MIDI出力デバイス（環境に合わせて変更）
 const midiOutput = new easymidi.Output('loopMIDI');
+
+// IPアドレス（環境に合わせて変更）
+const HOST = '0.0.0.0';
+
+// ポート番号（環境に合わせて変更）
+const PORT = 3032;
 
 // TCPサーバーの作成
 const server = net.createServer((socket) => {
@@ -72,8 +78,7 @@ const server = net.createServer((socket) => {
 });
 
 // サーバーを指定ポートで起動
-const PORT = 3032;
-server.listen(PORT, '0.0.0.0', () => {
+server.listen(PORT, HOST, () => {
     console.log(`TCP OSCサーバーがポート ${PORT} で起動しました`);
 });
 
